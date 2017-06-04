@@ -4,12 +4,14 @@ summary: Spring Boot snap demo project # 79 char long summary
 description: |
    A sample project to showcase how a rest microservice is packaged in a snap
 grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
   main:
     command: java -jar $SNAP/jar/spring-boot-snap-1.0-SNAPSHOT.jar
     daemon: simple
+    plugs: [network-bind]
+  
     
 parts:
   service:
